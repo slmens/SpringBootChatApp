@@ -1,0 +1,7 @@
+#homeContainer {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(23, 154, 194);
+  border: 20px solid white;
+  display: flex;
+}

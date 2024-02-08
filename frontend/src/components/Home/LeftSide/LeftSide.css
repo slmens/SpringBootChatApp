@@ -1,0 +1,41 @@
+#leftSide {
+  width: 40%;
+  height: full;
+  padding: 30px 15px 30px 15px;
+}
+
+#leftSideHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#leftSideHeader h1 {
+  color: white;
+  font-size: 35px;
+}
+
+#leftSideHeader div {
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+#leftSideHeader h3 {
+  font-size: 23px;
+}
+
+#plusIcon {
+  margin-right: 10px;
+  font-size: 2rem;
+}
+
+#leftSideChats {
+  margin-top: 50px;
+  width: 100%;
+  height: full;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
