@@ -1,28 +1,44 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useState } from "react";
 import "./RigthSide.css";
 import IncomingMessage from "../../reusableComponents/IncomingMessage/IncomingMessage";
 import SentMessage from "../../reusableComponents/SentMessage/SentMessage";
 
-function RigthSide({ currentMessages }) {
-  console.log(currentMessages);
+function RigthSide({ currentMessages, sendMessage }) {
+  const [messageToSend, setMessageToSend] = useState("");
+
+  function handleOnChange(e) {
+    setMessageToSend(e.target.value);
+  }
+
+  function handleClick() {
+    sendMessage(messageToSend);
+    setMessageToSend("");
+  }
 
   return (
     <div id="rightSide">
-      <div id="incomingMessagesContainer">
+      <div id="messageContainer" className="scrollable-container">
         {currentMessages &&
-          currentMessages.incomingMessages &&
-          currentMessages.incomingMessages.map((message, index) => (
-            <IncomingMessage key={index} message={message} />
-          ))}
+          currentMessages.map((message, index) =>
+            message.type === "incoming" ? (
+              <IncomingMessage key={index} message={message.text} />
+            ) : (
+              <SentMessage key={index} message={message.text} />
+            )
+          )}
       </div>
 
-      <div id="sentMessagesContainer">
-        {currentMessages &&
-          currentMessages.sentMessages &&
-          currentMessages.sentMessages.map((message, index) => (
-            <SentMessage key={index} message={message} />
-          ))}
+      <div id="sendMessageContainer">
+        <input
+          onChange={handleOnChange}
+          type="text"
+          placeholder="Your message"
+          value={messageToSend}
+        />
+        <div onClick={handleClick} id="btnSend">
+          Send
+        </div>
       </div>
     </div>
   );

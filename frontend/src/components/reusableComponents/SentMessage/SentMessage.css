@@ -1,8 +1,11 @@
 #sentMessage {
   width: fit-content;
+  height: fit-content;
   padding: 5px 15px 5px 15px;
-  border-radius: 5px;
+  border-radius: 3px;
   background-color: white;
-  margin-bottom: 5px;
-  max-width: 70%;
+  max-width: 48%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  margin-left: auto;
 }

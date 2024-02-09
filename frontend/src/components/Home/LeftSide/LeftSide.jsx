@@ -41,10 +41,13 @@ function LeftSide({ setCurrentChat, setMessages }) {
 
         setMessages((prev) => ({
           ...prev,
-          [userId]: {
-            incomingMessages: [],
-            sentMessages: [],
-          },
+          [userId]: [
+            /*{
+              text: "adfdfadfdasfsdfsdfdafsdfdfadsfdsafdsafsdfsdfdasfdsfadsfadsfdsfasfddfadsfdsfasdffasfsdfdsafs",
+              type: "incoming",
+            }; like this  */
+            // Add more messages as needed
+          ],
         }));
 
         setCurrentChat(userId);

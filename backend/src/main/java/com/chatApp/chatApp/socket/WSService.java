@@ -19,9 +19,4 @@ public class WSService {
         MessageResponse message = new MessageResponse("deleteAllMessages", LocalDateTime.now());
         messagingTemplate.convertAndSend("/topic/globalNotifications", message);
     }
-
-    public void sendPrivateNotification(final UUID userId, MessageResponse messageResponse) {
-        String destination = "/user/" + userId + "/queue/privateNotifications";
-        messagingTemplate.convertAndSend(destination, messageResponse);
-    }
 }
