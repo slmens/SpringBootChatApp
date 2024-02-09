@@ -1,0 +1,10 @@
+#incomingMessage {
+  width: fit-content;
+  padding: 5px 15px 5px 15px;
+  border-radius: 5px;
+  background-color: white;
+  margin-bottom: 5px;
+  max-width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+}

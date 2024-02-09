@@ -1,6 +1,26 @@
-#rigthSide {
+#rightSide {
   background-color: rgb(201, 201, 201);
   width: 60%;
   height: full;
   border: 2px solid rgb(23, 154, 194);
+  position: relative;
+  display: flex;
+}
+
+#incomingMessagesContainer {
+  padding: 15px 5px 15px 10px;
+  width: 50%;
+  max-width: 70%;
+  overflow-wrap: break-word;
+  background-color: antiquewhite;
+}
+
+#sentMessagesContainer {
+  padding: 15px 10px 15px 5px;
+  width: 50%;
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  background-color: aqua;
 }
