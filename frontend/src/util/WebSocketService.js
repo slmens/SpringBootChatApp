@@ -10,6 +10,7 @@ const WebSocketService = {
     handleReceivedGlobalMessages,
     userSubscriptionId
   ) => {
+    WebSocketService.closeWebSocket();
     const socket = new SockJS("http://localhost:8080/chatRoom");
     WebSocketService.stompClient = Stomp.over(socket);
 
@@ -21,6 +22,8 @@ const WebSocketService = {
         "/topic/user/" + userSubscriptionId,
         (message) => {
           const receivedMessage = JSON.parse(message.body);
+          console.log(message);
+          console.log(receivedMessage);
           onMessageReceived(receivedMessage);
         }
       );
@@ -34,11 +37,20 @@ const WebSocketService = {
     });
   },
 
-  sendMessage: (userId, message) => {
+  sendMessage: (
+    userId,
+    message,
+    currentUserId,
+    handleSendedPrivateMessages
+  ) => {
+    const currentDateTime = new Date();
+    let payload = null;
+    console.log(currentUserId);
     if (WebSocketService.stompClient) {
-      const payload = {
-        userId,
+      payload = {
+        senderUserId: currentUserId,
         content: message,
+        sendTime: currentDateTime,
       };
       WebSocketService.stompClient.send(
         `/ws/send-message/${userId}`,
@@ -46,6 +58,8 @@ const WebSocketService = {
         JSON.stringify(payload)
       );
     }
+
+    handleSendedPrivateMessages(payload, userId);
   },
 
   closeWebSocket: () => {

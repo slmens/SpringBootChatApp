@@ -5,8 +5,7 @@ import "./LeftSide.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
-function LeftSide({ setCurrentChat, setMessages }) {
-  const [chats, setChats] = useState([]);
+function LeftSide({ setCurrentChat, setMessages, chats, setChats }) {
   const chatCount = useRef(0);
 
   // messages'ı burda tutsam her bir idnin karşısında sent ve incoming messages olsa ve left side da bir chati değiştirdiğimde o chatin messages karşılığını home'a versem
@@ -49,10 +48,8 @@ function LeftSide({ setCurrentChat, setMessages }) {
             // Add more messages as needed
           ],
         }));
-
         setCurrentChat(userId);
       }
-
       chatCount.current = chatCount.current + 1;
     }
   }

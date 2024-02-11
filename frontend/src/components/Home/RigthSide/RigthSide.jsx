@@ -4,7 +4,7 @@ import "./RigthSide.css";
 import IncomingMessage from "../../reusableComponents/IncomingMessage/IncomingMessage";
 import SentMessage from "../../reusableComponents/SentMessage/SentMessage";
 
-function RigthSide({ currentMessages, sendMessage }) {
+function RigthSide({ currentMessages, sendMessage, currentChat }) {
   const [messageToSend, setMessageToSend] = useState("");
 
   function handleOnChange(e) {
@@ -12,12 +12,13 @@ function RigthSide({ currentMessages, sendMessage }) {
   }
 
   function handleClick() {
-    sendMessage(messageToSend);
+    sendMessage(messageToSend, currentChat);
     setMessageToSend("");
   }
 
   return (
     <div id="rightSide">
+      <h1>Current Chat: {currentChat}</h1>
       <div id="messageContainer" className="scrollable-container">
         {currentMessages &&
           currentMessages.map((message, index) =>

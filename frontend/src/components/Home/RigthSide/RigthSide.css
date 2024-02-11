@@ -6,6 +6,16 @@
   position: relative;
 }
 
+#rightSide h1 {
+  background-color: rgb(0, 0, 0);
+  padding: 5px 15px;
+  color: white;
+  width: 100%;
+  margin-right: auto;
+  height: fit-content;
+  border: 2px solid rgb(23, 154, 194);
+}
+
 #messageContainer {
   width: 100%;
   height: full;

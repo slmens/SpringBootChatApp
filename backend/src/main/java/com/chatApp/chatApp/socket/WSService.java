@@ -16,7 +16,7 @@ public class WSService {
     }
 
     public void sendGlobalNotification() {
-        MessageResponse message = new MessageResponse("deleteAllMessages", LocalDateTime.now());
+        MessageResponse message = new MessageResponse(0L,"deleteAllMessages", LocalDateTime.now());
         messagingTemplate.convertAndSend("/topic/globalNotifications", message);
     }
 }

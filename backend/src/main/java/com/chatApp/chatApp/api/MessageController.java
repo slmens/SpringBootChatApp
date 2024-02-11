@@ -15,9 +15,9 @@ public class MessageController {
         return new MessageResponse(HtmlUtils.htmlEscape(message.getContent()),message.getSendTime());
     }*/
 
-    @MessageMapping("/send-message/{userId}")
-    @SendTo("/topic/user/{userId}")
-    public MessageResponse sendMessage(@DestinationVariable String userId, MessageResponse message) {
+    @MessageMapping("/send-message/{destinationUserId}")
+    @SendTo("/topic/user/{destinationUserId}")
+    public MessageResponse sendMessage(@DestinationVariable String destinationUserId, MessageResponse message) {
         // Process the message (e.g., store it in the database)
         // You can customize the logic based on your requirements
 
